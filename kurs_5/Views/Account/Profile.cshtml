@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Profile";
+}
+<!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <h1 class="mt-4 mb-3">
+            Profile
+        </h1>
+
+        <form style="margin-bottom: 50px;text-align: -webkit-center;" action="/Account/ActionUpdate" method="post">
+            <div class="form-column">
+                <div class="col-md-4 mb-3">
+                    <label for="validationDefault01">First name</label>
+                    <input type="text" class="form-control" id="validationDefault01" name="Name" value="@(((kurs_5.Models.Users)Session["User"]).Name)" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="validationDefaultUsername">Email</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="validationDefaultUsername" name="Email" value="@(((kurs_5.Models.Users)Session["User"]).Email)" aria-describedby="inputGroupPrepend2" required>
+                    </div>
+                </div>
+            </div>
+            <div class="form-column">
+                <div class="col-md-4 mb-3">
+                    <label for="validationDefault03">Address</label>
+                    <input type="text" class="form-control" id="validationDefault03" name="Address" value="@(((kurs_5.Models.Users)Session["User"]).Address)" required>
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Update</button>
+        </form>
+
+        <h1 class="mt-4 mb-3">
+            Orders
+        </h1>
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Product Price</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var o in ViewBag.UserResults)
+                    {
+                        <tr>
+                            <td>@o.ProductName</td>
+                            <td>@o.ProductPrice</td>
+                            <td>@o.StatusName</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>

@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+}
+
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">
+        Register
+    </h1>
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="Index">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Register</li>
+    </ol>
+
+    <form style="margin-bottom: 50px;text-align: -webkit-center;" action="/Account/ActionRegister" method="post">
+        <div class="form-column">
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault01">First name</label>
+                <input type="text" class="form-control" id="validationDefault01" name="FirstName" placeholder="First name" required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault02">Last name</label>
+                <input type="text" class="form-control" id="validationDefault02" name="LastName" placeholder="Last name" required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationDefaultUsername">Email</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="validationDefaultUsername" name="Email" placeholder="Email" aria-describedby="inputGroupPrepend2" required>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationDefaultPassword">Password</label>
+                <div class="input-group">
+                    <input type="password" class="form-control" id="validationDefaultPassword" name="Password" placeholder="Password" aria-describedby="inputGroupPrepend3" required>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationDefaultPasswordRepeat">Repeat password</label>
+                <div class="input-group">
+                    <input type="password" class="form-control" id="validationDefaultPasswordRepeat" placeholder="Repeat password" aria-describedby="inputGroupPrepend3" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-column">
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault03">Address</label>
+                <input type="text" class="form-control" id="validationDefault03" name="Address" placeholder="Address" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                <label class="form-check-label" for="invalidCheck2">
+                    Agree to terms and conditions
+                </label>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>

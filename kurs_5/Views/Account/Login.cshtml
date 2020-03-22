@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+<form style="margin-bottom: 50px;text-align: -webkit-center;" action="/Account/ActionLogin" method="post">
+    <div class="form-column">
+        <div class="col-md-4 mb-3">
+            <label for="validationDefaultUsername">Email</label>
+            <div class="input-group">
+                <input type="text" class="form-control" id="validationDefaultUsername" name="Email" placeholder="Email" aria-describedby="inputGroupPrepend2" required>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationDefaultPassword">Password</label>
+            <div class="input-group">
+                <input type="password" class="form-control" id="validationDefaultPassword" name="Password" placeholder="Password" aria-describedby="inputGroupPrepend3" required>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" class="form-control" id="validationDefaultPassword" name="ProductId" value="@Request.Params["ProductId"]">
+    <button class="btn btn-primary" type="submit">Login</button>
+</form>

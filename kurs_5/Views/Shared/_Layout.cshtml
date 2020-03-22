@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>@ViewBag.Title - Tech Store</title>
+
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/Home/Index">My Tech Store</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: red" href="/Home/Sale">Sale</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/MobilePhones">Mobile Phones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/Contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/About">About</a>
+                    </li>
+                    @if (Session["User"] == null)
+                    {
+                        <li class="nav-item" style="margin-left: 10px;">
+                            <a class="btn btn-dark" href="/Account/Login">Login</a>
+                        </li>
+                        <li class="nav-item" style="margin-left: 10px;">
+                            <a class="btn btn-dark" href="/Account/Register">Register</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item" style="margin-left: 10px;">
+                            <a class="btn btn-dark" href="/Account/Profile">@(((kurs_5.Models.Users)Session["User"]).Name)</a>
+                        </li>
+                        <li class="nav-item" style="margin-left: 10px;">
+                            <a class="btn btn-dark" href="/Account/Logout">Logout</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My Tech Store</p>
+        </footer>
+    </div>
+
+    <script src="@Url.Content("~/Scripts/jquery.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.bundle.min.js")" type="text/javascript"></script>
+</body>
+</html>

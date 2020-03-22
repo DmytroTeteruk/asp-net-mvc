@@ -1,0 +1,105 @@
+﻿@model IEnumerable<kurs_5.Models.Product>
+@{
+    ViewBag.Title = "Mobile Phones";
+}
+
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">
+        Mobile phones
+    </h1>
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="Index">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Mobile phones</li>
+    </ol>
+
+    <div class="row" style="margin-left: 20%">
+        <ul class="pagination justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">Nokia</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">Apple</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">Xiaomi</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">Huawei</a>
+            </li>
+            <li class="page-item nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select Year
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                    <a class="dropdown-item" href="full-width.html">Full Width Page</a>
+                    <a class="dropdown-item" href="sidebar.html">Sidebar Page</a>
+                    <a class="dropdown-item" href="faq.html">FAQ</a>
+                    <a class="dropdown-item" href="404.html">404</a>
+                    <a class="dropdown-item" href="pricing.html">Pricing Table</a>
+                </div>
+            </li>
+            <li class="page-item nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select Price
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                    <a class="dropdown-item" href="full-width.html">Full Width Page</a>
+                    <a class="dropdown-item" href="sidebar.html">Sidebar Page</a>
+                    <a class="dropdown-item" href="faq.html">FAQ</a>
+                    <a class="dropdown-item" href="404.html">404</a>
+                    <a class="dropdown-item" href="pricing.html">Pricing Table</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="row">
+        @foreach (var p in Model)
+        {
+            <div class="col-lg-4 col-sm-6 portfolio-item">
+                <div class="card h-100">
+                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="#">@p.Name</a>
+                        </h4>
+                        <p class="card-text">@p.Description</p>
+                        <p class="card-text" name="Price">@p.Price $</p>
+                        <a href="@Url.Action("Payment", "Home", new { @ProductId = @p.Id })" class="btn btn-primary">Buy!</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Pagination -->
+    <ul class="pagination justify-content-center">
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">3</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+            </a>
+        </li>
+    </ul>
+
+</div>
